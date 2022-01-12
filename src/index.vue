@@ -10,13 +10,16 @@
         </div>
 
         <div class="flex pt-5 justify-center md:justify-start">
-          <button class="bg-transparent hover:bg-green-700 text-green-900 font-semibold hover:text-white py-2 px-4 border border-green-700 hover:border-transparent rounded-lg">
-            <router-link to="/page1">Go Page1</router-link>
-          </button>
-
-          <button class="ml-5 bg-transparent hover:bg-green-800 text-green-900 font-semibold hover:text-white py-2 px-4 border border-green-800 hover:border-transparent rounded-lg">
-            <router-link to="/page2">Go Page2</router-link>
-          </button>
+          <router-link to="/page1">
+            <button class="bg-transparent hover:bg-green-700 text-green-900 font-semibold hover:text-white py-2 px-4 border border-green-700 hover:border-transparent rounded-lg">
+              Go Page1
+            </button>
+          </router-link>
+          <router-link to="/page2">
+            <button class="bg-transparent hover:bg-green-700 text-green-900 font-semibold hover:text-white py-2 px-4 border border-green-700 hover:border-transparent rounded-lg">
+              Go Page2
+            </button>
+          </router-link>
         </div>
 
       </div>
