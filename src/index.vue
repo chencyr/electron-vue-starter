@@ -1,14 +1,28 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
+  <div class="container w-fit mx-auto">
+    <div class="md:flex pt-10 py-5 ">
+      <img alt="Vue logo" class=" p-2 w-48 h-48 mx-auto" src="./assets/logo.png">
+      <div class="px-10 py-5">
+        <div class="text-5xl font-thin text-center md:text-left">
+          The Progressive
+          <br>
+          JavaScript Framework
+        </div>
 
-  <div class="hello">
-    <h3>Vue-Router Test</h3>
-    <ul>
-      <li><router-link to="/page1">Go to Page1</router-link></li>
-      <li><router-link to="/page2">Go to Page2</router-link></li>
-    </ul>
+        <div class="flex pt-5 justify-center md:justify-start">
+          <button class="bg-transparent hover:bg-green-700 text-green-900 font-semibold hover:text-white py-2 px-4 border border-green-700 hover:border-transparent rounded-lg">
+            <router-link to="/page1">Go Page1</router-link>
+          </button>
+
+          <button class="ml-5 bg-transparent hover:bg-green-800 text-green-900 font-semibold hover:text-white py-2 px-4 border border-green-800 hover:border-transparent rounded-lg">
+            <router-link to="/page2">Go Page2</router-link>
+          </button>
+        </div>
+
+      </div>
+
+    </div>
   </div>
-
   <router-view></router-view>
 </template>
 
@@ -21,28 +35,3 @@ export default {
   },
 }
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
-</style>
