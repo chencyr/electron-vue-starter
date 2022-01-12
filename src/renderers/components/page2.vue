@@ -1,21 +1,16 @@
 <template>
-    <div class="hello">
-        <h1>{{ msg }}</h1>
-        <p>
-            For a guide and recipes on how to configure / customize this project,<br>
-            check out the
-            <a href="https://cli.vuejs.org" target="_blank" rel="noopener">vue-cli documentation</a>.
-        </p>
-        <h3>Essential Links</h3>
-        <ul>
+    <div class="container w-fit mx-auto">
+        <h3 class="text-xl font-extralight">Essential Links</h3>
+        <ul class="flex gap-4 text-green-600 font-thin">
             <li><a href="https://vuejs.org" target="_blank" rel="noopener">Core Docs</a></li>
             <li><a href="https://forum.vuejs.org" target="_blank" rel="noopener">Forum</a></li>
             <li><a href="https://chat.vuejs.org" target="_blank" rel="noopener">Community Chat</a></li>
             <li><a href="https://twitter.com/vuejs" target="_blank" rel="noopener">Twitter</a></li>
             <li><a href="https://news.vuejs.org" target="_blank" rel="noopener">News</a></li>
         </ul>
-        <h3>Ecosystem</h3>
-        <ul>
+        <div class="pt-10"></div>
+        <h3 class="text-xl font-extralight">Ecosystem</h3>
+        <ul class="flex gap-4 text-green-600 font-thin">
             <li><a href="https://router.vuejs.org" target="_blank" rel="noopener">vue-router</a></li>
             <li><a href="https://vuex.vuejs.org" target="_blank" rel="noopener">vuex</a></li>
             <li><a href="https://github.com/vuejs/vue-devtools#vue-devtools" target="_blank" rel="noopener">vue-devtools</a></li>
@@ -29,7 +24,7 @@
     export default {
         name: 'Page2',
         props: {
-            msg: String
+
         },
         methods: {
             performCall() {
@@ -38,21 +33,3 @@
         }
     }
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-    h3 {
-        margin: 40px 0 0;
-    }
-    ul {
-        list-style-type: none;
-        padding: 0;
-    }
-    li {
-        display: inline-block;
-        margin: 0 10px;
-    }
-    a {
-        color: #42b983;
-    }
-</style>

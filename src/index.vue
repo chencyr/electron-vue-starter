@@ -1,48 +1,41 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
+  <div class="container w-fit mx-auto">
+    <div class="md:flex pt-10 py-5 ">
+      <img alt="Vue logo" class=" p-2 w-48 h-48 mx-auto" src="./assets/logo.png">
+      <div class="px-10 py-5">
+        <div class="text-5xl font-thin text-center md:text-left ">
+          The Progressive
+          <br>
+          JavaScript Framework
+        </div>
 
-  <div class="hello">
-    <h3>Vue-Router Test</h3>
-    <ul>
-      <li><router-link to="/page1">Go to Page1</router-link></li>
-      <li><router-link to="/page2">Go to Page2</router-link></li>
-    </ul>
+        <div class="flex pt-5 justify-center md:justify-start">
+          <router-link to="/page1">
+            <btn>Go Page1</btn>
+          </router-link>
+          <div class="p-3"></div>
+          <router-link to="/page2">
+            <btn>Go Page2</btn>
+          </router-link>
+        </div>
+
+      </div>
+
+    </div>
   </div>
-
   <router-view></router-view>
 </template>
 
 <script>
+import Btn from './renderers/components/utilities/btn/primary'
 
 export default {
   name: 'App',
   provide: {
     $tester: window.tester
   },
+  components: {
+    Btn
+  }
 }
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
-</style>

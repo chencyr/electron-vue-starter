@@ -1,4 +1,4 @@
-# sandbox
+# Starter
 
 ## Project setup
 ```
