@@ -15,6 +15,7 @@
               Go Page1
             </button>
           </router-link>
+          <div class="p-3"></div>
           <router-link to="/page2">
             <button class="bg-transparent hover:bg-green-700 text-green-900 font-semibold hover:text-white py-2 px-4 border border-green-700 hover:border-transparent rounded-lg">
               Go Page2
