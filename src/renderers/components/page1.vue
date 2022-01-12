@@ -18,6 +18,9 @@
             <li><a rel="noopener" v-on:click="fn1()">call $tester.fn1</a></li>
             <li><a rel="noopener" v-on:click="fn2()">call $tester.fn2</a></li>
         </ul>
+        <ul>
+            <li>{{ testValue }}</li>
+        </ul>
     </div>
 </template>
 
@@ -26,19 +29,20 @@
         name: 'Page1',
         inject: ['$tester'],
         props: {
-            msg: String
+            msg: String,
         },
+        data: () => { return { testValue: "" } },
         methods: {
             fn1() {
-                this.$tester.fn1({test: 'args1'}).then((result) => {
-                    console.log('fn1 return:', result);
-                })
+                this.$tester.fn1({test: 'args1'}).then(this.updateValue);
             },
             fn2() {
-                this.$tester.fn2({test: 'args2'}).then((result) => {
-                    console.log('fn2 return:', result);
-                })
+                this.$tester.fn2({test: 'args2'}).then(this.updateValue);
             },
+            updateValue(value) {
+                console.log('fn return:', value);
+                this.testValue = value;
+            }
         }
     }
 </script>
