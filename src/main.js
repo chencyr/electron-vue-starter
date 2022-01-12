@@ -1,10 +1,11 @@
 import { createApp } from 'vue'
-import App from './App.vue'
 
 import { createRouter, createWebHashHistory } from 'vue-router'
 
+import index from './index.vue'
 import Page1 from './renderers/components/page1.vue'
 import Page2 from './renderers/components/page2.vue'
+
 
 const routes = [
     { path: '/', component: Page1 },
@@ -18,6 +19,6 @@ const router = createRouter({
     routes,
 });
 
-const app = createApp(App);
+const app = createApp(index);
 app.use(router);
 app.mount('#app');
