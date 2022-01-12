@@ -1,24 +1,20 @@
 <template>
-    <div class="hello">
-        <h1>{{ msg }}</h1>
-        <p>
-            For a guide and recipes on how to configure / customize this project,<br>
-            check out the
-            <a href="https://cli.vuejs.org" target="_blank" rel="noopener">vue-cli documentation</a>.
-        </p>
-        <h3>Installed CLI Plugins</h3>
-        <ul>
+    <div class="container w-fit mx-auto">
+        <h3 class="text-xl font-extralight">Installed CLI Plugins</h3>
+        <ul class="flex gap-4 text-green-600 font-thin">
             <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-babel" target="_blank"
                    rel="noopener">babel</a></li>
             <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-eslint" target="_blank"
                    rel="noopener">eslint</a></li>
         </ul>
-        <h3>Test IPC call</h3>
-        <ul>
+        <div class="pt-10"></div>
+        <h3 class="text-xl font-extralight">Test IPC call</h3>
+        <ul class="flex gap-4 text-green-600 font-thin">
             <li><a rel="noopener" v-on:click="fn1()">call $tester.fn1</a></li>
             <li><a rel="noopener" v-on:click="fn2()">call $tester.fn2</a></li>
         </ul>
-        <ul>
+        <div class="pt-10"></div>
+        <ul class="flex gap-4 text-green-600 font-thin">
             <li>{{ testValue }}</li>
         </ul>
     </div>
@@ -46,24 +42,3 @@
         }
     }
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-    h3 {
-        margin: 40px 0 0;
-    }
-
-    ul {
-        list-style-type: none;
-        padding: 0;
-    }
-
-    li {
-        display: inline-block;
-        margin: 0 10px;
-    }
-
-    a {
-        color: #42b983;
-    }
-</style>
