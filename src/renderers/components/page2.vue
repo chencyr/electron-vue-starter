@@ -1,5 +1,4 @@
 <template>
-
     <div class="container w-fit mx-auto">
         <h3 class="text-xl font-extralight">Essential Links</h3>
         <ul class="flex gap-4 text-green-600 font-thin">
