@@ -16,9 +16,9 @@
 
 export default {
   name: 'App',
-  components: {
-
-  }
+  provide: {
+    $tester: window.tester
+  },
 }
 </script>
 

@@ -4,6 +4,8 @@ import {app, protocol, BrowserWindow} from 'electron'
 import {createProtocol} from 'vue-cli-plugin-electron-builder/lib'
 import installExtension, {VUEJS_DEVTOOLS} from 'electron-devtools-installer'
 
+import './core/ipc'
+
 const path = require('path');
 
 const isDevelopment = process.env.NODE_ENV !== 'production';
@@ -16,8 +18,6 @@ protocol.registerSchemesAsPrivileged([
 
 async function createWindow() {
   // Create the browser window.
-
-  console.log('__dirname', __dirname);
   const win = new BrowserWindow({
     width: 1280,
     height: 768,
