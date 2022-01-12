@@ -11,15 +11,11 @@
 
         <div class="flex pt-5 justify-center md:justify-start">
           <router-link to="/page1">
-            <button class="bg-transparent hover:bg-green-600 text-green-600 font-semibold hover:text-white py-2 px-4 border border-green-600 hover:border-transparent rounded-lg">
-              Go Page1
-            </button>
+            <btn>Go Page1</btn>
           </router-link>
           <div class="p-3"></div>
           <router-link to="/page2">
-            <button class="bg-transparent hover:bg-green-600 text-green-600 font-semibold hover:text-white py-2 px-4 border border-green-600 hover:border-transparent rounded-lg">
-              Go Page2
-            </button>
+            <btn>Go Page2</btn>
           </router-link>
         </div>
 
@@ -31,11 +27,15 @@
 </template>
 
 <script>
+import Btn from './renderers/components/utilities/btn/primary'
 
 export default {
   name: 'App',
   provide: {
     $tester: window.tester
   },
+  components: {
+    Btn
+  }
 }
 </script>
