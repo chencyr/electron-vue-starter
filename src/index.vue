@@ -17,6 +17,10 @@
           <router-link to="/page2">
             <btn>Go Page2</btn>
           </router-link>
+          <div class="p-3"></div>
+          <router-link to="/page3">
+            <btn>Go Page3</btn>
+          </router-link>
         </div>
 
       </div>
