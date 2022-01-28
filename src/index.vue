@@ -37,7 +37,7 @@ export default {
   name: 'App',
   provide: {
     $tester: window.tester,
-    $ipc: window.ipc,
+    $portManager: window.portManager,
   },
   components: {
     Btn

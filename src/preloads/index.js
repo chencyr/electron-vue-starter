@@ -3,7 +3,7 @@ import loader from './loader'
 
 
 contextBridge.exposeInMainWorld('tester', loader(['fn1', 'fn2']));
-contextBridge.exposeInMainWorld('ipc', {
+contextBridge.exposeInMainWorld('portManager', {
     'on': (name, handler) => {
         console.log('request connect port:', name);
 
