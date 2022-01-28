@@ -43,7 +43,6 @@ async function createWindow() {
   PortManager.connect(win);
 
   setInterval(() => {
-      console.log('send from interval');
       const port = PortManager.ports['main.browser.page3'];
       if(port) {
          port.postMessage({ value: 1 });
