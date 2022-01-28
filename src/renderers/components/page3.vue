@@ -10,8 +10,7 @@
         <div class="pt-10"></div>
         <h3 class="text-xl font-extralight">Test IPC call</h3>
         <ul class="flex gap-4 text-green-600 font-thin">
-            <li><a rel="noopener" v-on:click="fn1()">call $tester.fn1</a></li>
-            <li><a rel="noopener" v-on:click="fn2()">call $tester.fn2</a></li>
+            <li><a rel="noopener" v-on:click="$ipc.renderer().send('browser')">call $ipc.send</a></li>
         </ul>
         <div class="pt-10"></div>
         <ul class="flex gap-4 text-green-600 font-thin">
@@ -23,21 +22,20 @@
 <script>
     export default {
         name: 'Page3',
-        inject: ['$tester'],
+        inject: ['$ipc'],
         props: {
             msg: String,
         },
-        data: () => { return { testValue: "" } },
+        mounted: function() {
+            this.$ipc.on('main.browser.page3', this.updateValue);
+        },
+        data: () => { return { testValue: 0 } },
         methods: {
-            fn1() {
-                this.$tester.fn1({test: 'args1'}).then(this.updateValue);
+            send() {
+                this.$ipc.send('test');
             },
-            fn2() {
-                this.$tester.fn2({test: 'args2'}).then(this.updateValue);
-            },
-            updateValue(value) {
-                console.log('fn return:', value);
-                this.testValue = value;
+            updateValue(event) {
+                this.testValue += event.data.value;
             }
         }
     }

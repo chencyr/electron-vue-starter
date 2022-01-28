@@ -36,7 +36,8 @@ import Btn from './renderers/components/utilities/btn/primary'
 export default {
   name: 'App',
   provide: {
-    $tester: window.tester
+    $tester: window.tester,
+    $ipc: window.ipc,
   },
   components: {
     Btn

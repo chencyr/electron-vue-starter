@@ -1,10 +1,10 @@
 'use strict';
 
-import {app, protocol, BrowserWindow} from 'electron'
+import {app, protocol, BrowserWindow, MessageChannelMain} from 'electron'
 import {createProtocol} from 'vue-cli-plugin-electron-builder/lib'
 import installExtension, {VUEJS_DEVTOOLS} from 'electron-devtools-installer'
 
-import './core/ipc'
+import { ChannelManager } from "./core/ipc"
 
 const path = require('path');
 
@@ -14,7 +14,6 @@ const isDevelopment = process.env.NODE_ENV !== 'production';
 protocol.registerSchemesAsPrivileged([
   {scheme: 'app', privileges: {secure: true, standard: true}}
 ]);
-
 
 async function createWindow() {
   // Create the browser window.
@@ -41,6 +40,15 @@ async function createWindow() {
     win.loadURL('app://./index.html')
   }
 
+  ChannelManager.register(win);
+
+  setInterval(() => {
+      console.log('send from interval');
+      const port = ChannelManager.channels['main.browser.page3'];
+      if(port) {
+         port.postMessage({ value: 1 });
+      }
+  }, 1000);
 
 }
 
