@@ -4,7 +4,7 @@ import {app, protocol, BrowserWindow, MessageChannelMain} from 'electron'
 import {createProtocol} from 'vue-cli-plugin-electron-builder/lib'
 import installExtension, {VUEJS_DEVTOOLS} from 'electron-devtools-installer'
 
-import { ChannelManager } from "./core/ipc"
+import { PortManager } from "./core/ipc"
 
 const path = require('path');
 
@@ -40,11 +40,11 @@ async function createWindow() {
     win.loadURL('app://./index.html')
   }
 
-  ChannelManager.register(win);
+  PortManager.connect(win);
 
   setInterval(() => {
       console.log('send from interval');
-      const port = ChannelManager.channels['main.browser.page3'];
+      const port = PortManager.ports['main.browser.page3'];
       if(port) {
          port.postMessage({ value: 1 });
       }

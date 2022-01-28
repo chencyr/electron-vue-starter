@@ -1,7 +1,7 @@
 import './tester'
-import ChannelManager from './channel-manager'
+import PortManager from './port-manager'
 
 
 export {
-    ChannelManager
+    PortManager
 }

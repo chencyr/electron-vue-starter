@@ -4,12 +4,11 @@ import loader from './loader'
 
 contextBridge.exposeInMainWorld('tester', loader(['fn1', 'fn2']));
 contextBridge.exposeInMainWorld('ipc', {
-    'renderer': () => ipcRenderer,
     'on': (name, handler) => {
-        console.log('register channel:', name);
+        console.log('request connect port:', name);
 
-        ipcRenderer.on(`register.channel[${name}].success`, async (event) => {
-            console.log(`create channel[${name}] success`, event);
+        ipcRenderer.on(`connect.port[${name}].success`, async (event) => {
+            console.log(`request connect port[${name}] success`, event);
             const [ port ] = event.ports;
             port.onmessage = (event) => {
                 handler({
@@ -19,7 +18,7 @@ contextBridge.exposeInMainWorld('ipc', {
             };
         });
 
-        ipcRenderer.send('register.channel', name);
+        ipcRenderer.send('connect.port', name);
     },
 });
 
