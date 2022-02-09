@@ -1,10 +1,10 @@
 'use strict';
 
-import {app, protocol, BrowserWindow} from 'electron'
+import {app, protocol, BrowserWindow, MessageChannelMain} from 'electron'
 import {createProtocol} from 'vue-cli-plugin-electron-builder/lib'
 import installExtension, {VUEJS_DEVTOOLS} from 'electron-devtools-installer'
 
-import './core/ipc'
+import { PortManager } from "./core/ipc"
 
 const path = require('path');
 
@@ -14,7 +14,6 @@ const isDevelopment = process.env.NODE_ENV !== 'production';
 protocol.registerSchemesAsPrivileged([
   {scheme: 'app', privileges: {secure: true, standard: true}}
 ]);
-
 
 async function createWindow() {
   // Create the browser window.
@@ -41,6 +40,14 @@ async function createWindow() {
     win.loadURL('app://./index.html')
   }
 
+  PortManager.connect(win);
+
+  setInterval(() => {
+      const port = PortManager.ports['main.browser.page3'];
+      if(port) {
+         port.postMessage({ value: 1 });
+      }
+  }, 1000);
 
 }
 
@@ -71,7 +78,7 @@ app.on('ready', async () => {
       console.error('Vue Devtools failed to install:', e.toString())
     }
   }
-  createWindow()
+  await createWindow()
 });
 
 // Exit cleanly on request from parent process in development mode.
